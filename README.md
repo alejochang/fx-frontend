@@ -1,6 +1,14 @@
+## Instructions
+Open a terminal and run:
+```shell
+git clone https://github.com/alejochang/fx-frontend.git
+cd fx-frontend
+npm install
+npm run start
+```
 You are building a single dealer platform / application which will allow users to make foreign currency trades.
 
-#####Part 1
+##### Part 1
 Story: As a user, I can input an amount and a currency
 
 Acceptance criteria
@@ -9,7 +17,7 @@ Acceptance criteria
 360px or less.
 3. The artifact can be reused in other parts of the application
 
-#####Part 2
+##### Part 2
 Story: As a user, After entering an amount and selecting a currency, the application should show me a USD equivalent
 amount. This result should not be part of the artifact above.
 
@@ -19,7 +27,7 @@ Acceptance criteria
 3. The update from the backend to the UI is async
 
 Bonus:
-#####Part 3
+##### Part 3
 Story: As a user, I should see the rate from the server constantly updating.
 
 Acceptance criteria
