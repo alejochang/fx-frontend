@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import debounce from 'lodash/debounce';
 import URLs from '../../config';
 
@@ -50,22 +50,37 @@ class AmountCurrency extends Component {
 
     render() {
       return (
-          <div className="mt3">
-              <label className="db fw6 lh-copy f6" htmlFor="amount">Amount</label>
-              <input
-                  className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-50"
-                  placeholder="Enter the amount" type="number" name="amount" value={this.state.amount} onChange={this.logChange}
-                  id="amount"/>
-              <select
-                  className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-50"
-                  name="currency" id="currency" value={this.state.currency}
-                  onChange={this.logChange}>
-                  {
-                      this.renderCurrencyList()
-                  }
-              </select>
-          </div>
+          <Fragment>
+              <div className="mt3">
+                  <label className="db fw6 lh-copy f6" htmlFor="amount">Amount</label>
+                  <input
+                      className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-50"
+                      placeholder="Enter the amount" type="number" name="amount" value={this.state.amount}
+                      onChange={this.logChange}
+                      id="amount"/>
+                  <select
+                      className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-50"
+                      name="currency" id="currency" value={this.state.currency}
+                      onChange={this.logChange}>
+                      {
+                          this.renderCurrencyList()
+                      }
+                  </select>
+              </div>
+              <div className="mt3">
+                  <label id="for-clear-amount" className="db fw6 lh-copy f6" htmlFor="clear-amount">Clear Amount</label>
+                  <input id="clear-amount" className="pa1"
+                         type="submit" value="X" onClick={this.handleClearAmount.bind(this)}/>
+              </div>
+          </Fragment>
       );
+    }
+
+    handleClearAmount(e){
+        this.setState({
+            amount:0
+        });
+        this.debouncedOnChange(e);
     }
   }
 
